@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "PopView.h"
+#import "MBProgressHUD.h"
+#import "MianViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +20,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSLog(@"%@------%@",[UIApplication sharedApplication].windows,[UIApplication sharedApplication].keyWindow);
+    
+    [PopView initWithTitle:nil success:^{
+        NSLog(@"xxxx");
+    } failure:^{
+        NSLog(@"ssss");
+    }];
+    
+    MianViewController *mainVC = [[MianViewController alloc]init];
+    [self presentViewController:mainVC animated:YES completion:nil];
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+
 }
 
 - (void)didReceiveMemoryWarning {
