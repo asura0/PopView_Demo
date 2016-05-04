@@ -85,11 +85,10 @@ static NSString *indefier = @"cell";
     }
     if (indexPath.row == 5) {
         [PopView initWithWaitingString:@"请稍后..."];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [PopView dissmissPopview];
+        });
     }
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [PopView dissmissPopview];
-    });
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
