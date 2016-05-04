@@ -386,6 +386,10 @@ typedef NS_ENUM(NSInteger, PopViewType){
 }
 // dissmiss 动画
 - (void)disssmissAnimationPopView{
+    
+    //设置还原 window 的 leavel
+    self.window.windowLevel = self.windowLevel;
+
     [UIView animateKeyframesWithDuration:0.4 delay:0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
         CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
         basicAnimation.fromValue = @1.0f;
@@ -432,8 +436,6 @@ typedef NS_ENUM(NSInteger, PopViewType){
     }else{
         self.failure ? self.failure() : nil;
     }
-    //设置还原 window 的 leavel
-    self.window.windowLevel = self.windowLevel;
     
     if (!self.isHandle) {
         [self disssmissAnimationPopView];
