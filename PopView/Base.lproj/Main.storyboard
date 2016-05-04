@@ -14,13 +14,34 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ixa-kp-P3H">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="qoj-wp-oD1"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="v2b-zM-uZM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ixa-kp-P3H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Rjp-QM-SMf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ixa-kp-P3H" secondAttribute="bottom" id="bho-X4-lYR"/>
+                            <constraint firstAttribute="trailing" secondItem="ixa-kp-P3H" secondAttribute="trailing" id="eNC-Dt-h0H"/>
+                            <constraint firstItem="ixa-kp-P3H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rtz-LZ-rJN"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="ixa-kp-P3H" id="NYP-1a-VXx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="195" y="246"/>
         </scene>
     </scenes>
 </document>
