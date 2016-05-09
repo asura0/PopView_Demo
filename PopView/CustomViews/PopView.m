@@ -315,14 +315,18 @@ typedef NS_ENUM(NSInteger, PopViewType){
 
 //移除
 + (void)dissmissPopview{
-    UIWindow *window = [UIApplication sharedApplication].windows.firstObject;
-
-    for (UIView *view in window.subviews) {
-        if ([view isKindOfClass:[UIButton class]]) {
-            for (UIView *subView in view.subviews) {
-                if ([subView isKindOfClass:[PopView class]]) {
-                    [((PopView *)subView) disssmissAnimationPopView];
-                    [((PopView *)subView).drawView stopAnimating];
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    
+    for (UIView *window in windows) {
+        if ([window isKindOfClass:[UIWindow class]]) {
+            for (UIView *view in window.subviews) {
+                if ([view isKindOfClass:[UIButton class]]) {
+                    for (UIView *subView in view.subviews) {
+                        if ([subView isKindOfClass:[PopView class]]) {
+                            [((PopView *)subView) disssmissAnimationPopView];
+                            [((PopView *)subView).drawView stopAnimating];
+                        }
+                    }
                 }
             }
         }
